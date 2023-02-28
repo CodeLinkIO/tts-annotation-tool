@@ -1,0 +1,43 @@
+{
+  "name": "functions",
+  "scripts": {
+    "build": "tsc",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log",
+    "firebase-emulators": "firebase emulators:start",
+    "firebase:emulators-init": "firebase init emulators",
+    "firebase:get-config": "firebase functions:config:get > .runtimeconfig.json",
+    "emulators:kill-functions": "kill $(lsof -t -i:5001)",
+    "emulators:kill-auth": "kill $(lsof -t -i:9099)",
+    "emulators:kill-firestore": "kill $(lsof -t -i:8080)",
+    "emulators:kill-hosting": "kill $(lsof -t -i:5002)",
+    "emulators:kill-storage": "kill $(lsof -t -i:9199)",
+    "emulators:kill-database": "kill $(lsof -t -i:9000)",
+    "emulators:kill-pubsub": "kill $(lsof -t -i:8085)"
+
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cuid": "^2.1.8",
+    "ffmpeg-static": "^4.4.0",
+    "firebase-admin": "^9.8.0",
+    "firebase-functions": "^3.21.2",
+    "fluent-ffmpeg": "^2.1.2",
+    "lodash": "^4.17.21",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/fluent-ffmpeg": "^2.1.18",
+    "@types/uuid": "^8.3.1",
+    "firebase-functions-test": "^0.2.0",
+    "typescript": "^3.8.0"
+  },
+  "private": true
+}

@@ -1,0 +1,14 @@
+Flask==2.0.1
+gunicorn==20.0.4
+requests==2.25.1
+librosa==0.8.1
+jiwer==2.2.0
+firebase-admin==4.4.0
+git+https://github.com/kinshuk-h/pytube
+google-cloud-tasks==2.8.1
+soundfile
+unidecode
+aiohttp
+nltk
+flask[async]
+flask-cors

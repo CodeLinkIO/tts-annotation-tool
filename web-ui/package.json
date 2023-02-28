@@ -1,0 +1,21 @@
+{
+  "name": "hal-vinyl",
+  "version": "1.7.1",
+  "private": true,
+  "scripts": {
+    "install:web": "cd ./web && yarn && cd ../",
+    "install:firebase": "cd ./functions && yarn && cd ../",
+    "install:app": "yarn && yarn install:web && yarn install:firebase",
+    "start:web": "cd ./web && yarn start",
+    "start:firebase-emulator": "cd ./functions && yarn firebase-emulators",
+    "start": "concurrently yarn:start:* -c #18237c,#523f90",
+    "firebase:kill-trailing-emulators": "cd ./functions && concurrently yarn:emulators:kill-*",
+    "firebase:build": "cd ./functions && yarn build && cd ../"
+  },
+  "dependencies": {
+    "concurrently": "^7.2.1"
+  },
+  "resolutions": {
+    "concurrently/rxjs": "^7.4.0"
+  }
+}

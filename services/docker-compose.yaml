@@ -1,0 +1,29 @@
+version: "3"
+services:
+  audio-processing-task:
+    build:
+      context: ./audio-processing-task
+      dockerfile: Dockerfile-dev
+    entrypoint:
+      - flask
+      - run
+      - --host=0.0.0.0
+    environment:
+      FLASK_DEBUG: 1
+      FLASK_APP: ./app.py
+    ports: ['5002:5000']
+    volumes: ['./audio-processing-task:/app']
+
+#  youtube-audio-processing:
+#    build:
+#      context: ./youtube-audio-processing
+#      dockerfile: Dockerfile-dev
+#    entrypoint:
+#      - flask
+#      - run
+#      - --host=0.0.0.0
+#    environment:
+#      FLASK_DEBUG: 1
+#      FLASK_APP: ./app.py
+#    ports: [ '5003:5000' ]
+#    volumes: [ './youtube-audio-processing:/app' ]
