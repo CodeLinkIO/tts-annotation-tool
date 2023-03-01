@@ -47,7 +47,7 @@ To run the project you need to setup Google Cloud Platform project.
 - Add URL obtained from last step to the cloud function ENV `functions.config().preprocesssourceaudio.processingurl`
 - Deploy the cloud function to Firebase and get the URL of the service.
 - Get `CREATE_SNIPPET_URL` put `services/audio-processing-task/.env` then redeploy the tasks
-- Build and deploy the web app to Firebase hosting `web-ui/web`
+- Build and deploy the web app to Firebase hosting `web-ui/web`. See the README in `web-ui/web` for more details
 
 
 ## Released dataset using this tool
