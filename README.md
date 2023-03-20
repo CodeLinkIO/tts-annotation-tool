@@ -30,28 +30,42 @@ Please refer to the [Firebase docs](https://firebase.google.com/docs?authuser=0&
 To run the project you need to setup Google Cloud Platform project.
 
 ### Deploy ASR tasks and Services to Cloud Run
-- Deploy the ASR service to Cloud Run
-- Obtain any ASR model from Hugging Face, in this case we use a wav2vec2 model. You can also use other models if you want.
-- Obtain the URL of the service. It will be used in the next step
+1. Deploy the ASR service to Cloud Run 
+2. Obtain any ASR model from Hugging Face, in this case we use a wav2vec2 model. You can also use other models if you want.
+3. Package the model and put it to a folder `model` in `services/audio-processing` folder
+4. Deploy the service to [Cloud Run](https://cloud.google.com/run/docs/quickstarts/build-and-deploy/deploy-python-service)
+5. Obtain the URL of the service. It will be used in the next step
 
-- Create a Cloud task queue in GCP
-- Create a Service account for Cloud task queue and give it permission to access Cloud Tasks Queue
-- Put `task-cert.json` file in `services/audio-processing-task` folder
-- Add the task `QUEUE_NAME` and `PROJECT_ID` to `services/audio-processing-task/.env` file
-- Add Firebase service account key to `services/audio-processing-task` folder so that the service can access Firestore DB and Firebase storage
-- Deploy the service to Cloud Run
-- Obtain the URL of the service. It will be used in the next step
+6. Create a Cloud [task queue](https://cloud.google.com/tasks/docs/creating-queues) in GCP
+7. Create a Service account for Cloud task queue and give it permission to access Cloud Tasks Queue
+8. Put `task-cert.json` file in `services/audio-processing-task` folder
+9. Add the task `QUEUE_NAME` and `PROJECT_ID` to `services/audio-processing-task/.env` file
+10. Add Firebase service account key to `services/audio-processing-task` folder so that the service can access Firestore DB and Firebase storage
+11. Deploy the service to Cloud Run
+12. Obtain the URL of the service. It will be used in the next step
 
 ### Deploy Firebase Cloud Function and Firebase Hosting
-- Add Firebase service account key to `web-ui/functions` folder so that the service can access Firestore DB and Firebase storage
-- Add URL obtained from last step to the cloud function ENV `functions.config().preprocesssourceaudio.processingurl`
-- Deploy the cloud function to Firebase and get the URL of the service.
-- Get `CREATE_SNIPPET_URL` put `services/audio-processing-task/.env` then redeploy the tasks
-- Build and deploy the web app to Firebase hosting `web-ui/web`. See the README in `web-ui/web` for more details
+1. Reference to the [Firebase docs](https://firebase.google.com/docs?authuser=0&hl=en) for more information.
+2. Add Firebase service account key to `web-ui/functions` folder so that the service can access Firestore DB and Firebase storage
+3. Add URL obtained from last step to the cloud function ENV `functions.config().preprocesssourceaudio.processingurl`
+4. Deploy the cloud function to Firebase and get the URL of the service. Run `firebase deploy --only functions`
+5. Get `CREATE_SNIPPET_URL` from the functions put `services/audio-processing-task/.env` then redeploy the ASR tasks to Cloud Run 
+6. Build and deploy the web app to Firebase hosting `web-ui/web`. See the README in `web-ui/web` for more details
 
+### App example screen record and use case
+Check out the video [here](https://drive.google.com/file/d/1w60td0FO5AnC88cc0maUydnsw5q3zWL0/view)
+And the `sceeenshot` folder for more details
+
+
+### Example
+After processing the audio, the result after reading will be like this:
+- [Audio](https://drive.google.com/file/d/1w60td0FO5AnC88cc0maUydnsw5q3zWL0/view)
+- Text: "thế là sáng hôm sau, cái tin tôi về đến cổng còn hỏi thăm đường đã lan ra khắp xóm"
+You can also see the result in the app and in Firebase storage.
+![Storage Screenshot](screenshot/Cloud_storage.png)
 
 ## Released dataset using this tool
-We have released a vietnamese dataset using this tool. You can find it [here]()
+We have released a vietnamese dataset using this tool. You can find it [here](https://github.com/CodeLinkIO/vietnamese-voice-dataset)
 This is a dataset for Vietnamese TTS. It contains 10000 audio - text pairs. 
 The audio is recorded by a professional voice actor. The text is collected from news articles from the internet. 
 The dataset is used for training a TTS model for Vietnamese language.
