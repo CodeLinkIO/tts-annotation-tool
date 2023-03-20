@@ -71,7 +71,4 @@ The audio is recorded by a professional voice actor. The text is collected from 
 The dataset is used for training a TTS model for Vietnamese language.
 
 ## Application
-We have trained a TTS model using with the help of this tool for preparing the dataset.
-
-
-## License
+We have trained a Vietnamese TTS model using with the help of this tool for preparing the dataset. This model is used at baonoi.ai to generate voice for news articles. You can try it out [here](https://baonoi.ai/)
