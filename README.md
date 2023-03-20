@@ -52,7 +52,7 @@ To run the project you need to set up a Google Cloud Platform project.
 
 ### App example screen record and use case
 Check out the video [here](https://drive.google.com/file/d/1w60td0FO5AnC88cc0maUydnsw5q3zWL0/view)
-And the `sceenshot` folder for more details
+And the `screenshot` folder for more details
 
 
 ### Example
