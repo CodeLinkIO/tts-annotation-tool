@@ -51,7 +51,7 @@ To run the project you need to set up a Google Cloud Platform project.
 6. Build and deploy the web app to Firebase hosting `web-ui/web`. See the README in `web-ui/web` for more details
 
 ### App example screen record and use case
-Check out the video [here](https://drive.google.com/file/d/1w60td0FO5AnC88cc0maUydnsw5q3zWL0/view)
+Check out the video [here](https://drive.google.com/file/d/1Fy5ggLeR3F1dRJ_DAhVyBrHdECoXQqdt/view?usp=share_link)
 And the `screenshot` folder for more details
 
 
